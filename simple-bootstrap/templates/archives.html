@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block archclass %} class="active"{%endblock%}
+{% block title %}Kapitel{%endblock%}
+{% block content %}
+<h3>Kapitel</h3>
+<dl>
+    {% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}
+
+            <ul class="archive-list">
+            {% for article in date_year %}
+                <li></span><a href="{{ SITEURL }}/{{ article.url }}">{{article.title}}</a></li>
+            {% endfor %}
+     </ul>
+    {% endfor %}
+</dl>
+{% endblock %}
